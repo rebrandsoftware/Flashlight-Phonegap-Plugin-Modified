@@ -185,7 +185,11 @@ public class Flashlight extends CordovaPlugin {
   }
   
   private void toggleTorchFast(boolean switchOn) {
+  	try {
         doToggleTorchFast(switchOn);
+    } catch (Exception e) {
+      callbackContext.error(e.getMessage());
+    }
   }
   
   @SuppressWarnings("deprecation")
