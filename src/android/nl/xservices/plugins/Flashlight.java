@@ -40,6 +40,7 @@ public class Flashlight extends CordovaPlugin {
   private Camera mCamera;
   private String mId;
   private CameraManager mCameraManager;
+  private Camera.Parameters mParameters;
 
   private static final int PERMISSION_CALLBACK_CAMERA = 33;
   private String[] permissions = {Manifest.permission.CAMERA};
@@ -221,7 +222,8 @@ public class Flashlight extends CordovaPlugin {
         }
       }
       
-      final Camera.Parameters mParameters = mCamera.getParameters();
+      final Camera.Parameters parameters = mCamera.getParameters();
+      mParameters = parameters;
       
       callbackContext.success();
     }
@@ -331,6 +333,7 @@ public class Flashlight extends CordovaPlugin {
           mCamera = null;
         }
         mCameraManager = null;
+        mParameters = null;
         mId = null;
         releasing = false;
       }
