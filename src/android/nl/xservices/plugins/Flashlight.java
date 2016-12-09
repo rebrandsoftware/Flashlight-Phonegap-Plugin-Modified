@@ -83,7 +83,7 @@ public class Flashlight extends CordovaPlugin {
           }
         });
         return true;
-      if (action.equals(ACTION_SWITCH_ON_PREP)) {
+      } else if (action.equals(ACTION_SWITCH_ON_PREP)) {
 
         cordova.getThreadPool().execute(new Runnable() {
           public void run() {
