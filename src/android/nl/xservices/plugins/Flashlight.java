@@ -284,6 +284,17 @@ public class Flashlight extends CordovaPlugin {
     // since folks may not use SDK 23 to compile we'll use reflection as a temporary solution
     try {
       final Method setTorchMode = cameraManager.getClass().getMethod("setTorchMode", String.class, boolean.class);
+      
+      try {
+		for(int i=0; i<30; i++){
+			setTorchMode.invoke(cameraManager, id, switchOn);
+			switchOn = !switchOn;
+            Thread.sleep(500);
+        }
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+      
       setTorchMode.invoke(cameraManager, id, switchOn);
       callbackContext.success();
     } catch (ReflectiveOperationException e) {
