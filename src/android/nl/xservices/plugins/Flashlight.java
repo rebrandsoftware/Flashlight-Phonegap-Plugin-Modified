@@ -286,10 +286,10 @@ public class Flashlight extends CordovaPlugin {
       final Method setTorchMode = cameraManager.getClass().getMethod("setTorchMode", String.class, boolean.class);
       
       try {
-		for(int i=0; i<30; i++){
+		for(int i=0; i<300; i++){
 			setTorchMode.invoke(cameraManager, id, switchOn);
 			switchOn = !switchOn;
-            Thread.sleep(500);
+            Thread.sleep(12.5);
         }
     } catch (InterruptedException e) {
         e.printStackTrace();
