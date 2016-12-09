@@ -121,7 +121,6 @@ public class Flashlight extends CordovaPlugin {
           public void run() {
           	  //TOGGLE WITH NO OVERHEAD
               toggleTorchFast(true);
-            }
           }
         });
 
